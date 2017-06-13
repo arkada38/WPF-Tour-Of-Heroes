@@ -72,6 +72,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\HeroesFactory.cs" />
     <Compile Include="Provider.cs" />

@@ -18,6 +18,10 @@ namespace TourOfHeroes.Views
         public ObservableCollection<Hero> Heroes => Provider.HeroesFactory.Heroes;
 
         private Hero _hero;
-        public Hero Hero => _hero ?? (_hero = new Hero() { Name = "Windstorm", Id = 1 });
+        public Hero Hero
+        {
+            get => _hero;
+            set => SetField(ref _hero, value);
+        }
     }
 }
