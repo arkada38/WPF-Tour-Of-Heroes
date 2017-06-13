@@ -7,6 +7,7 @@ namespace TourOfHeroes
     {
         protected override void OnStartup(StartupEventArgs e)
         {
+            base.OnStartup(e);
             new MainView().Show();
         }
 

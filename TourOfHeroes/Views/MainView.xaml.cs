@@ -16,12 +16,5 @@ namespace TourOfHeroes.Views
     {
         public string Title => "Tour of Heroes";
         public ObservableCollection<Hero> Heroes => Provider.HeroesFactory.Heroes;
-
-        private Hero _hero;
-        public Hero Hero
-        {
-            get => _hero;
-            set => SetField(ref _hero, value);
-        }
     }
 }

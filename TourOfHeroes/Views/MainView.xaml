@@ -2,9 +2,9 @@
     x:Class="TourOfHeroes.Views.MainView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:converters="clr-namespace:TourOfHeroes.Converters"
     xmlns:local="clr-namespace:TourOfHeroes.Views"
     xmlns:properties="clr-namespace:TourOfHeroes.Properties"
-    xmlns:converters="clr-namespace:TourOfHeroes.Converters"
     Title="{Binding Title}"
     Width="{Binding Source={x:Static properties:Settings.Default}, Path=Width, Mode=TwoWay}"
     Height="{Binding Source={x:Static properties:Settings.Default}, Path=Height, Mode=TwoWay}"
@@ -14,9 +14,6 @@
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
-    <Window.Resources>
-        <converters:NullToVisibilityConverter x:Key="NullToVis" />
-    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
@@ -36,9 +33,10 @@
             FontSize="24"
             Text="My Heroes" />
         <ListView
+            x:Name="HeroDetailListView"
             Grid.Row="2"
             ItemsSource="{Binding Heroes}"
-            SelectedItem="{Binding Hero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            SelectionMode="Single">
             <ListView.View>
                 <GridView>
                     <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" />
@@ -46,10 +44,9 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <StackPanel Grid.Row="3" Visibility="{Binding Hero, Converter={StaticResource NullToVis}}">
-            <TextBlock FontSize="36" Text="{Binding Hero.Name, StringFormat=\{0\} details!}" />
-            <TextBlock FontSize="24" Text="{Binding Hero.Id, StringFormat=Id: {0}}" />
-            <TextBox Text="{Binding Hero.Name, UpdateSourceTrigger=PropertyChanged}" />
-        </StackPanel>
+        <local:HeroDetailView
+            x:Name="HeroDetail"
+            Grid.Row="4"
+            DataContext="{Binding SelectedItem, ElementName=HeroDetailListView}" />
     </Grid>
 </Window>
