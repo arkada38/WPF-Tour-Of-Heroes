@@ -1,10 +1,12 @@
 ﻿
 
+using TourOfHeroes.Models;
+
 namespace TourOfHeroes
 {
     public static class Provider
     {
-        //private static PhonesModel _phones;
-        //public static PhonesModel PhonesModel => _phones ?? (_phones = new PhonesModel());
+        private static HeroesFactory _heroesFactory;
+        public static HeroesFactory HeroesFactory => _heroesFactory ?? (_heroesFactory = new HeroesFactory());
     }
 }

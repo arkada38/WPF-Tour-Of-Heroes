@@ -73,6 +73,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Models\Hero.cs" />
+    <Compile Include="Models\HeroesFactory.cs" />
     <Compile Include="Provider.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
