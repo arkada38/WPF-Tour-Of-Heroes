@@ -16,5 +16,9 @@ namespace TourOfHeroes.Views
     {
         public string Title => "Tour of Heroes";
         public ObservableCollection<Hero> Heroes => Provider.HeroesFactory.Heroes;
+
+        public RelayCommand OpenUrl =>
+            new RelayCommand(() => System.Diagnostics.Process.Start("https://angular.io/tutorial" +
+                ""));
     }
 }

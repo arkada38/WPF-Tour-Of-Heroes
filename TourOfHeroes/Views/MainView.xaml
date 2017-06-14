@@ -25,33 +25,18 @@
                 Width="70"
                 Margin="5,5,0,5"
                 Content="Heroes" />
-            <TextBlock
+            <Button
                 Width="70"
                 Margin="5,5,0,5"
-                TextAlignment="Center">
-                <Hyperlink NavigateUri="https://angular.io/tutorial">Tutorial</Hyperlink>
-            </TextBlock>
+                Content="Tutorial"
+                Command="{Binding OpenUrl}" />
         </StackPanel>
 
         <Frame
-            Height="150"
+            Height="350"
             Margin="3"
             BorderBrush="LimeGreen"
             BorderThickness="2"
-            Source="DashboardView.xaml" />
-
-        <TextBlock FontSize="24" Text="My Heroes" />
-        <ListView
-            x:Name="HeroDetailListView"
-            ItemsSource="{Binding Heroes}"
-            SelectionMode="Single">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn DisplayMemberBinding="{Binding Id}" Header="Id" />
-                    <GridViewColumn DisplayMemberBinding="{Binding Name}" Header="Name" />
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <local:HeroDetailView x:Name="HeroDetail" DataContext="{Binding SelectedItem, ElementName=HeroDetailListView}" />
+            Source="HeroesView.xaml" />
     </StackPanel>
 </Window>
