@@ -11,30 +11,54 @@
     WindowTitle="Top Heroes"
     mc:Ignorable="d">
     <Page.Resources>
-        <Style TargetType="Button" x:Key="HeroButton" >
-            <Setter Property="Margin" Value="5,5,0,5"/>
-            <Setter Property="Height" Value="50"/>
+        <Style x:Key="HeroButton" TargetType="Button">
+            <Setter Property="Margin" Value="5,5,0,5" />
+            <Setter Property="Height" Value="50" />
+            <Setter Property="Grid.Row" Value="1" />
         </Style>
     </Page.Resources>
+    <Page.DataContext>
+        <local:DashboardViewModel />
+    </Page.DataContext>
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
-            <ColumnDefinition/>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <TextBlock
+            Grid.ColumnSpan="4"
             HorizontalAlignment="Center"
             FontSize="36"
-            Grid.ColumnSpan="4"
             Text="Top Heroes" />
-        <Button Grid.Row="1" Grid.Column="0" Content="Hero 1" Style="{StaticResource HeroButton}" />
-        <Button Grid.Row="1" Grid.Column="1" Content="Hero 2" Style="{StaticResource HeroButton}" />
-        <Button Grid.Row="1" Grid.Column="2" Content="Hero 3" Style="{StaticResource HeroButton}" />
-        <Button Grid.Row="1" Grid.Column="3" Content="Hero 4" Style="{StaticResource HeroButton}" Margin="5" />
+        <Button
+            Grid.Column="0"
+            Content="{Binding HeroesFactory.Heroes[0].Name}"
+            Style="{StaticResource HeroButton}" />
+        <Button
+            Grid.Column="1"
+            Content="{Binding HeroesFactory.Heroes[1].Name}"
+            Style="{StaticResource HeroButton}" />
+        <Button
+            Grid.Column="2"
+            Content="{Binding HeroesFactory.Heroes[2].Name}"
+            Style="{StaticResource HeroButton}" />
+        <Button
+            Grid.Column="3"
+            Margin="5"
+            Content="{Binding HeroesFactory.Heroes[3].Name}"
+            Style="{StaticResource HeroButton}" />
+        <TextBlock
+            Grid.Row="2"
+            Margin="5"
+            Text="Hero Search" />
+        <TextBox Grid.Row="3" Margin="5" />
     </Grid>
 </Page>

@@ -1,5 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using TourOfHeroes.Models;
+﻿using TourOfHeroes.Models;
 using TourOfHeroes.MVVM;
 
 namespace TourOfHeroes.Views
@@ -14,12 +13,6 @@ namespace TourOfHeroes.Views
 
     public class HeroesViewModel : ObservableObject
     {
-        public Hero Hero
-        {
-            get => Provider.HeroesFactory.Hero;
-            set => Provider.HeroesFactory.Hero = value;
-        }
-
-        public ObservableCollection<Hero> Heroes => Provider.HeroesFactory.Heroes;
+        public HeroesFactory HeroesFactory => Provider.HeroesFactory;
     }
 }

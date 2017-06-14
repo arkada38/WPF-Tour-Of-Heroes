@@ -1,6 +1,4 @@
-﻿
-
-using TourOfHeroes.Models;
+﻿using TourOfHeroes.Models;
 
 namespace TourOfHeroes
 {

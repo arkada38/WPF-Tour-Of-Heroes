@@ -14,9 +14,14 @@
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
-    <StackPanel>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
         <TextBlock FontSize="24" Text="{Binding Title}" />
-        <StackPanel Orientation="Horizontal">
+        <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button
                 Width="70"
                 Margin="5,5,0,5"
@@ -33,10 +38,7 @@
         </StackPanel>
 
         <Frame
-            Height="350"
-            Margin="3"
-            BorderBrush="LimeGreen"
-            BorderThickness="2"
-            Source="HeroesView.xaml" />
-    </StackPanel>
+            Grid.Row="2"
+            Source="DashboardView.xaml" />
+    </Grid>
 </Window>
