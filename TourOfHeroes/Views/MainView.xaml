@@ -14,27 +14,35 @@
     <Window.DataContext>
         <local:MainViewModel />
     </Window.DataContext>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="Auto" />
-        </Grid.RowDefinitions>
-        <TextBlock
-            HorizontalAlignment="Center"
-            FontSize="48"
-            Text="{Binding Title}" />
+    <StackPanel>
+        <TextBlock FontSize="24" Text="{Binding Title}" />
+        <StackPanel Orientation="Horizontal">
+            <Button
+                Width="70"
+                Margin="5,5,0,5"
+                Content="Dashboard" />
+            <Button
+                Width="70"
+                Margin="5,5,0,5"
+                Content="Heroes" />
+            <TextBlock
+                Width="70"
+                Margin="5,5,0,5"
+                TextAlignment="Center">
+                <Hyperlink NavigateUri="https://angular.io/tutorial">Tutorial</Hyperlink>
+            </TextBlock>
+        </StackPanel>
 
-        <TextBlock
-            Grid.Row="1"
-            FontSize="24"
-            Text="My Heroes" />
+        <Frame
+            Height="150"
+            Margin="3"
+            BorderBrush="LimeGreen"
+            BorderThickness="2"
+            Source="DashboardView.xaml" />
+
+        <TextBlock FontSize="24" Text="My Heroes" />
         <ListView
             x:Name="HeroDetailListView"
-            Grid.Row="2"
             ItemsSource="{Binding Heroes}"
             SelectionMode="Single">
             <ListView.View>
@@ -44,9 +52,6 @@
                 </GridView>
             </ListView.View>
         </ListView>
-        <local:HeroDetailView
-            x:Name="HeroDetail"
-            Grid.Row="4"
-            DataContext="{Binding SelectedItem, ElementName=HeroDetailListView}" />
-    </Grid>
+        <local:HeroDetailView x:Name="HeroDetail" DataContext="{Binding SelectedItem, ElementName=HeroDetailListView}" />
+    </StackPanel>
 </Window>
