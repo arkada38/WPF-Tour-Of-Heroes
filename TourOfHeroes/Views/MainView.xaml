@@ -16,29 +16,34 @@
     </Window.DataContext>
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
         </Grid.RowDefinitions>
         <TextBlock FontSize="24" Text="{Binding Title}" />
         <StackPanel Grid.Row="1" Orientation="Horizontal">
             <Button
                 Width="70"
                 Margin="5,5,0,5"
+                Command="{Binding SetDashboardPage, Mode=OneWay}"
                 Content="Dashboard" />
             <Button
                 Width="70"
                 Margin="5,5,0,5"
+                Command="{Binding SetHeroesPage, Mode=OneWay}"
                 Content="Heroes" />
             <Button
                 Width="70"
                 Margin="5,5,0,5"
-                Content="Tutorial"
-                Command="{Binding OpenUrl}" />
+                Command="{Binding OpenUrl}"
+                Content="Tutorial" />
         </StackPanel>
 
-        <Frame
-            Grid.Row="2"
-            Source="DashboardView.xaml" />
+        <ScrollViewer Grid.Row="2">
+            <Frame
+                Content="{Binding PageService.ActivePage, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                NavigationUIVisibility="Hidden" ScrollViewer.VerticalScrollBarVisibility="Auto" ScrollViewer.CanContentScroll="True" />
+        </ScrollViewer>
+
     </Grid>
 </Window>

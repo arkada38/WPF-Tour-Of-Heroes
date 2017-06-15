@@ -57,8 +57,12 @@
             Style="{StaticResource HeroButton}" />
         <TextBlock
             Grid.Row="2"
+            Grid.ColumnSpan="2"
             Margin="5"
             Text="Hero Search" />
-        <TextBox Grid.Row="3" Margin="5" />
+        <TextBox
+            Grid.Row="3"
+            Grid.ColumnSpan="2"
+            Margin="5" />
     </Grid>
 </Page>

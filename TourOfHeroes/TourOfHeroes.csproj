@@ -93,6 +93,7 @@
     <Compile Include="Converters\NullToVisibilityConverter.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\HeroesFactory.cs" />
+    <Compile Include="Models\PageService.cs" />
     <Compile Include="Provider.cs" />
     <Compile Include="Views\DashboardView.xaml.cs">
       <DependentUpon>DashboardView.xaml</DependentUpon>

@@ -13,6 +13,11 @@
 
     <StackPanel>
         <TextBlock FontSize="24" Text="My Heroes" />
+        <StackPanel Orientation="Horizontal">
+            <TextBlock Text="Hero name:" Margin="5,5,0,5" />
+            <TextBox MinWidth="90" Margin="5,5,0,5" Text="{Binding NewHero.Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+            <Button Content="Add" Margin="5" Command="{Binding AddNewHero}" />
+        </StackPanel>
         <ListView
             ItemsSource="{Binding HeroesFactory.Heroes}"
             SelectionMode="Single" SelectedItem="{Binding HeroesFactory.Hero, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
