@@ -41,20 +41,28 @@
         <Button
             Grid.Column="0"
             Content="{Binding HeroesFactory.Heroes[0].Name}"
-            Style="{StaticResource HeroButton}" />
+            Style="{StaticResource HeroButton}"
+            Command="{Binding ShowHeroDetail}"
+            CommandParameter="0" />
         <Button
             Grid.Column="1"
             Content="{Binding HeroesFactory.Heroes[1].Name}"
-            Style="{StaticResource HeroButton}" />
+            Style="{StaticResource HeroButton}"
+            Command="{Binding ShowHeroDetail}"
+            CommandParameter="1" />
         <Button
             Grid.Column="2"
             Content="{Binding HeroesFactory.Heroes[2].Name}"
-            Style="{StaticResource HeroButton}" />
+            Style="{StaticResource HeroButton}"
+            Command="{Binding ShowHeroDetail}"
+            CommandParameter="2" />
         <Button
             Grid.Column="3"
             Margin="5"
             Content="{Binding HeroesFactory.Heroes[3].Name}"
-            Style="{StaticResource HeroButton}" />
+            Style="{StaticResource HeroButton}"
+            Command="{Binding ShowHeroDetail}"
+            CommandParameter="3" />
         <TextBlock
             Grid.Row="2"
             Grid.ColumnSpan="2"

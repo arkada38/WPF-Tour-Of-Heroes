@@ -15,6 +15,16 @@ namespace TourOfHeroes.Views
     public class HeroesViewModel : ObservableObject
     {
         public HeroesFactory HeroesFactory => Provider.HeroesFactory;
+        
+        public Hero SelectedHero
+        {
+            get => HeroesFactory.Hero;
+            set
+            {
+                HeroesFactory.Hero = value;
+                Provider.PageService.ActivePage = new HeroDetailView { DataContext = value };
+            }
+        }
 
         private Hero _newHero;
         public Hero NewHero
