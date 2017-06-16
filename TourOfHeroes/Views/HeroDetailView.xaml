@@ -2,19 +2,15 @@
     x:Class="TourOfHeroes.Views.HeroDetailView"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:converters="clr-namespace:TourOfHeroes.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d">
-    <Page.Resources>
-        <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
-    </Page.Resources>
-    <StackPanel Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, Mode=OneWay}">
+    <StackPanel HorizontalAlignment="Left">
         <TextBlock FontSize="36" Text="{Binding Hero.Name, StringFormat=\{0\} details!}" Margin="5,5,5,0" />
         <TextBlock FontSize="24" Text="{Binding Hero.Id, StringFormat=Id: \{0\}}" Margin="5,5,5,0" />
-        <TextBox Text="{Binding Hero.Name, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="5,5,5,0" />
+        <TextBox Text="{Binding Hero.Name, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="5,5,5,0" HorizontalAlignment="Left" />
         <StackPanel Orientation="Horizontal" Margin="5">
             <Button Content="Back" Command="{Binding Back}" Margin="0,0,5,0" />
             <Button Content="Save" Command="{Binding Save}" />

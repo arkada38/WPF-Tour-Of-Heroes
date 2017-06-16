@@ -14,18 +14,14 @@ namespace TourOfHeroes.Views
 
     public class HeroesViewModel : ObservableObject
     {
+        #region Fields and Properties
         public HeroesFactory HeroesFactory => Provider.HeroesFactory;
-        
+
+        private Hero _selectedHero;
         public Hero SelectedHero
         {
-            get => HeroesFactory.Hero;
-            set
-            {
-                HeroesFactory.Hero = value;
-                var heroDetailViewModel = new HeroDetailViewModel(HeroesFactory.Hero);
-                Provider.PageService.PreviousPage = Provider.PageService.ActivePage;
-                Provider.PageService.ActivePage = new HeroDetailView { DataContext = heroDetailViewModel };
-            }
+            get => _selectedHero;
+            set => SetField(ref _selectedHero, value);
         }
 
         private Hero _newHero;
@@ -34,12 +30,23 @@ namespace TourOfHeroes.Views
             get => _newHero ?? (_newHero = new Hero {Id = HeroesFactory.Heroes.Last().Id + 1});
             set => SetField(ref _newHero, value);
         }
+        #endregion
 
+        #region Commands
         public RelayCommand AddNewHero =>
             new RelayCommand(() =>
             {
                 HeroesFactory.Heroes.Add(NewHero);
                 NewHero = null;
             }, o => !string.IsNullOrEmpty(NewHero.Name));
+
+        public RelayCommand ViewDetails =>
+            new RelayCommand(() =>
+            {
+                var heroDetailViewModel = new HeroDetailViewModel(SelectedHero);
+                Provider.PageService.PreviousPage = Provider.PageService.ActivePage;
+                Provider.PageService.ActivePage = new HeroDetailView { DataContext = heroDetailViewModel };
+            }, o => SelectedHero != null);
+        #endregion
     }
 }

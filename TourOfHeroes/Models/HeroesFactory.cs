@@ -5,13 +5,6 @@ namespace TourOfHeroes.Models
 {
     public class HeroesFactory : ObservableObject
     {
-        private Hero _hero;
-        public Hero Hero
-        {
-            get => _hero;
-            set => SetField(ref _hero, value);
-        }
-
         public ObservableCollection<Hero> Heroes { get; }
 
         public HeroesFactory()
