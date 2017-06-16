@@ -18,9 +18,10 @@ namespace TourOfHeroes.Views
         public PageService PageService => Provider.PageService;
 
         public RelayCommand ShowHeroDetail =>
-            new RelayCommand(i =>
+            new RelayCommand(h =>
             {
-                var heroDetailViewModel = new HeroDetailViewModel(HeroesFactory.Heroes[Convert.ToInt32(i)]);
+                if (h == null) return;
+                var heroDetailViewModel = new HeroDetailViewModel(h as Hero);
                 PageService.PreviousPage = PageService.ActivePage;
                 PageService.ActivePage = new HeroDetailView { DataContext = heroDetailViewModel };
             });

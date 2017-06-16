@@ -47,6 +47,12 @@ namespace TourOfHeroes.Views
                 Provider.PageService.PreviousPage = Provider.PageService.ActivePage;
                 Provider.PageService.ActivePage = new HeroDetailView { DataContext = heroDetailViewModel };
             }, o => SelectedHero != null);
+
+        public RelayCommand RemoveHero =>
+            new RelayCommand(h =>
+            {
+                HeroesFactory.Heroes.Remove((Hero) h);
+            });
         #endregion
     }
 }
