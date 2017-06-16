@@ -5,7 +5,6 @@
     xmlns:converters="clr-namespace:TourOfHeroes.Converters"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="clr-namespace:TourOfHeroes.Views"
     d:DesignHeight="300"
     d:DesignWidth="300"
     mc:Ignorable="d">
@@ -13,8 +12,12 @@
         <converters:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
     </Page.Resources>
     <StackPanel Visibility="{Binding Converter={StaticResource NullToVisibilityConverter}, Mode=OneWay}">
-        <TextBlock FontSize="36" Text="{Binding Name, StringFormat=\{0\} details!}" />
-        <TextBlock FontSize="24" Text="{Binding Id, StringFormat=Id: \{0\}}" />
-        <TextBox Text="{Binding Name, UpdateSourceTrigger=PropertyChanged}" />
+        <TextBlock FontSize="36" Text="{Binding Hero.Name, StringFormat=\{0\} details!}" Margin="5,5,5,0" />
+        <TextBlock FontSize="24" Text="{Binding Hero.Id, StringFormat=Id: \{0\}}" Margin="5,5,5,0" />
+        <TextBox Text="{Binding Hero.Name, UpdateSourceTrigger=PropertyChanged}" Width="150" Margin="5,5,5,0" />
+        <StackPanel Orientation="Horizontal" Margin="5">
+            <Button Content="Back" Command="{Binding Back}" Margin="0,0,5,0" />
+            <Button Content="Save" Command="{Binding Save}" />
+        </StackPanel>
     </StackPanel>
 </Page>

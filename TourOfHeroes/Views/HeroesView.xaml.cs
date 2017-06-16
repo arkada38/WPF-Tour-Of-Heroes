@@ -22,7 +22,9 @@ namespace TourOfHeroes.Views
             set
             {
                 HeroesFactory.Hero = value;
-                Provider.PageService.ActivePage = new HeroDetailView { DataContext = value };
+                var heroDetailViewModel = new HeroDetailViewModel(HeroesFactory.Hero);
+                Provider.PageService.PreviousPage = Provider.PageService.ActivePage;
+                Provider.PageService.ActivePage = new HeroDetailView { DataContext = heroDetailViewModel };
             }
         }
 
