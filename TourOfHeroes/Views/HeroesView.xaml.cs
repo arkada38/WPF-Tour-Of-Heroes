@@ -38,7 +38,7 @@ namespace TourOfHeroes.Views
             {
                 HeroesFactory.Heroes.Add(NewHero);
                 NewHero = null;
-            }, o => !string.IsNullOrEmpty(NewHero.Name));
+            }, o => !string.IsNullOrWhiteSpace(NewHero.Name));
 
         public RelayCommand ViewDetails =>
             new RelayCommand(() =>
