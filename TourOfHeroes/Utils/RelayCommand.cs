@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace TourOfHeroes.MVVM
+namespace TourOfHeroes.Utils
 {
     public class RelayCommand : ICommand
     {

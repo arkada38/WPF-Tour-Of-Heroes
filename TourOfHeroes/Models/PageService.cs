@@ -1,5 +1,5 @@
 ﻿using System.Windows.Controls;
-using TourOfHeroes.MVVM;
+using TourOfHeroes.Utils;
 using TourOfHeroes.Views;
 
 namespace TourOfHeroes.Models

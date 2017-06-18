@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.Linq;
 using TourOfHeroes.Models;
-using TourOfHeroes.MVVM;
+using TourOfHeroes.Utils;
 
 namespace TourOfHeroes.Views
 {

@@ -2,7 +2,7 @@
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace TourOfHeroes.MVVM
+namespace TourOfHeroes.Utils
 {
     public class ObservableObject : INotifyPropertyChanged
     {

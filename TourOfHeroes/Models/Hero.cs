@@ -1,4 +1,4 @@
-﻿using TourOfHeroes.MVVM;
+﻿using TourOfHeroes.Utils;
 
 namespace TourOfHeroes.Models
 {

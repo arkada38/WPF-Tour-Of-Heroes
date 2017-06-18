@@ -110,8 +110,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MVVM\ObservableObject.cs" />
-    <Compile Include="MVVM\RelayCommand.cs" />
+    <Compile Include="Utils\ObservableObject.cs" />
+    <Compile Include="Utils\RelayCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
